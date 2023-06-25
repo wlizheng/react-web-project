@@ -42,11 +42,11 @@ const Host = () => {
                   <div>
                      <div className="fw-semibold">{place.title}</div>
                      <p className="text-sm mt-2 description">{place.description}</p>
-                     <div className="fw-semibold mb-1">$ {place.price} </div>
+                     <div className="fw-semibold mb-1">$ {place.price.toLocaleString()} </div>
                      <div className="text-sm text-secondary">
-                        checkIn time: {place.checkIn} <br/>
-                        checkOut time: {place.checkOut} <br/>
-                        max guests: {place.maxGuests} <br/>
+                        CheckIn {place.checkIn} <br/>
+                        CheckOut {place.checkOut} <br/>
+                        Maximum guests: {place.maxGuests} <br/>
                      </div>
                   </div>
                </Link>

@@ -60,7 +60,7 @@ const Profile = () => {
                               <input
                                  type="text"
                                  value={profile.username}
-                                 className="p-1 rounded-4 border"
+                                 className="p-1 rounded-4 border px-3"
                                  onChange={(event) => {
                                     const newProfile = {
                                        ...profile,

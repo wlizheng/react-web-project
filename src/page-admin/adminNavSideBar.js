@@ -3,13 +3,11 @@ import {TbSquareRoundedCheckFilled} from "react-icons/tb";
 import {Link} from "react-router-dom";
 import React from "react";
 import {BsFillHouseFill} from "react-icons/bs";
-import {RiUserSmileFill} from "react-icons/ri";
 
 const AdminNavSideBar = () => {
    const {pathname} = useLocation();
    const [ignore, admin, active] = pathname.split("/");
    const links = [
-      // {icon: <RiUserSmileFill/>, name: "profile"},
       {icon: <BsFillHouseFill/>, name: "places"},
       {icon: <TbSquareRoundedCheckFilled/>, name: "reservations"},
    ];

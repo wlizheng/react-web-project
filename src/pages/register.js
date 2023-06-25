@@ -44,8 +44,7 @@ const Register = () => {
                            type="radio"
                            value="host"
                            checked={role === "host"}
-                           onChange={() => setRole("host")}
-                        />
+                           onChange={() => setRole("host")}/>
                         Host
                      </label>
                      <label className="form-check-label me-5">
@@ -54,8 +53,7 @@ const Register = () => {
                            type="radio"
                            value="guest"
                            checked={role === "guest"}
-                           onChange={() => setRole("guest")}
-                        />
+                           onChange={() => setRole("guest")}/>
                         Guest
                      </label>
                      <label className="form-check-label">
@@ -64,8 +62,7 @@ const Register = () => {
                            type="radio"
                            value="admin"
                            checked={role === "admin"}
-                           onChange={() => setRole("admin")}
-                        />
+                           onChange={() => setRole("admin")}/>
                         Admin
                      </label>
                   </div>

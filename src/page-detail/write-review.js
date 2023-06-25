@@ -9,7 +9,7 @@ const WriteReview = ({reservation, onCancelReview}) => {
 
    const handleReviewSubmit = async () => {
       if (rating < 0 || rating > 5) {
-         alert("rating should within 1-5");
+         alert("Rating should be within the range of 0 to 5.");
          return;
       }
       const createdDate = new Date();
@@ -28,10 +28,10 @@ const WriteReview = ({reservation, onCancelReview}) => {
       <div>
          <div className="">
             <input
-               type="number" min="1" max="5" value={rating}
+               type="number" min="0" max="5" value={rating}
                onChange={(e) => setRating(e.target.value)}
                className="form-control mb-2"
-               placeholder="Rating (1-5)"
+               placeholder="Rating (0-5)"
             />
 
             <textarea

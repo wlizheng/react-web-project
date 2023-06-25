@@ -26,12 +26,6 @@ code {
   padding: 0.5rem;
 }
 
-
-.wb-active-link {
-  /*@apply bg-[#ff5160];*/
-  background-color: #ff5160;
-}
-
 a {
   text-decoration: none;
   color: inherit;

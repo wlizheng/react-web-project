@@ -22,7 +22,7 @@ const Home = () => {
 
    return (
       <div className="container-fluid mt-5">
-         <div className="row">
+         <div className="row mb-2">
             {places.length > 0 && places.map(place => (
                <Link to={`/detail/${place._id}`}
                      className="text-black text-decoration-none mb-4
@@ -33,17 +33,18 @@ const Home = () => {
                         <img src={place.photos?.[0]}
                              className="object-cover aspect-square rounded-4"
                              alt=""/>
-                        <button className="">
+                        <button>
                            <Like placeId={place._id}
                                  currentUser={currentUser}
                                  initialLiked={false}/>
                         </button>
                      </div>
-                     {place._id}
-                     <div className="mt-1 fw-bold">{place.address}</div>
+                     <div className="fw-bold">{place.address}</div>
                      <div className="text-black-50">{place.title}</div>
                      <div className="mt-1">
-                        <span className="font-bold">${place.price}</span> night
+                        <span className="font-bold">
+                           ${place.price.toLocaleString()}
+                        </span> night
                      </div>
                   </div>
                </Link>

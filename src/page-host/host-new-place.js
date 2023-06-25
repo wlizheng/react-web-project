@@ -43,7 +43,7 @@ const HostNewPlace = () => {
    }
 
    return (
-      <div className="container mt-3">
+      <div className="container mt-5">
          <h4 className="text-center mb-4">Host new place</h4>
          <form className="mb-5" onSubmit={handleSave}>
             <h5>Place Title</h5>
@@ -69,29 +69,29 @@ const HostNewPlace = () => {
                        className="btn btn-outline-primary float-end fw-bold">
                   Add
                </button>
-               <div className="row">
-                  {uploadLink.length > 0 && uploadLink.map(link => (
-                     <div className="col-2">
-                        <img src={link}
-                             className="object-cover aspect-square rounded-4 mb-2"
-                             alt=""/>
-                     </div>
-                  ))}
-               </div>
+            </div>
+            <div className="row mb-3">
+               {uploadLink.length > 0 && uploadLink.map(link => (
+                  <div className="col-2">
+                     <img src={link}
+                          className="object-cover aspect-square rounded-4 mb-2"
+                          alt=""/>
+                  </div>
+               ))}
             </div>
             <h5>Place Price</h5>
             <input type="number" value={price}
                    onChange={e => setPrice(e.target.value)}
                    placeholder="price / night"
                    className="wb-form mb-3"/>
-            <h5>CheckIn</h5>
+            <h5>Check-in</h5>
             <input type="text" value={checkIn}
                    onChange={e => setCheckIn(e.target.value)}
-                   placeholder="checkIn time" className="wb-form mb-3"/>
-            <h5>CheckOut</h5>
+                   placeholder="Check-in time" className="wb-form mb-3"/>
+            <h5>Checkout</h5>
             <input type="text" value={checkOut}
                    onChange={e => setCheckOut(e.target.value)}
-                   placeholder="checkOut time" className="wb-form mb-3"/>
+                   placeholder="Checkout time" className="wb-form mb-3"/>
             <h5>Maximum Guests</h5>
             <input type="number" value={maxGuests}
                    onChange={e => setMaxGuests(e.target.value)}

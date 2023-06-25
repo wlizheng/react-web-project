@@ -27,7 +27,6 @@ const Reservations = () => {
       const response = await axios.get(
          `/review/check?reservationId=${reservation._id}&userId=${reservation.guest._id}`);
       const reviews = response.data;
-      console.log(JSON.stringify(reviews));
 
       if (reviews !== null) {
          alert("You have already written a review for this reservation.");
@@ -75,13 +74,9 @@ const Reservations = () => {
                                  new Date(reservation.checkOut), "yyyy-MM-dd")}
                               </div>
                               <div>
-                                 guest: {reservation.guest._id} <br/>
-                                 place: {reservation.place._id} <br/>
-                              </div>
-                              <div>
                                  Number of guests: {reservation.numOfGuests}
                                  <br/>
-                                 Total price: ${reservation.price}
+                                 Total price: ${reservation.price.toLocaleString()}
                               </div>
                            </div>
                            <div className="float-end">

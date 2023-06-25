@@ -40,7 +40,6 @@ const Reservation = ({place}) => {
             placeId = place.id;
             exist = false;
          }
-         console.log(placeId);
          if (!exist) {
             const newPlace = await axios.post('/places', {
                title: place.title,
@@ -64,7 +63,7 @@ const Reservation = ({place}) => {
          });
          navigate('/reservations');
       } catch (e) {
-         console.log(e);
+         console.error(e);
       }
    };
 
@@ -72,7 +71,7 @@ const Reservation = ({place}) => {
       <div
          className="shadow rounded-4 border-2">
          <div className="row mt-3 p-3">
-            <h5>${place.price} / night</h5>
+            <h5>${place.price.toLocaleString()} / night</h5>
          </div>
 
          <div className="row px-4 p-3 fw-semibold text-sm">

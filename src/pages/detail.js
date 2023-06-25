@@ -5,7 +5,6 @@ import Reservation from "../page-detail/reservation";
 import ListingReviewsPlaces from "../page-detail/listing-reviews-places";
 import Place from "../classes/place"
 import {FaMapMarkerAlt, FaStar} from "react-icons/fa";
-import {useNavigate} from "react-router-dom";
 
 const Detail = () => {
    const {id} = useParams(); // place id
@@ -16,7 +15,6 @@ const Detail = () => {
    const price = params.get('value');
    const avgRt = params.get('rating');
    const [rating, setRating] = useState("");
-   const navigate = useNavigate();
 
    const fetchDetails = async () => {
       try {
@@ -24,14 +22,11 @@ const Detail = () => {
 
          if (price) {
             response = await axios.get(`/search/detail/${id}`);
-            console.log(response)
-
             const apiData = response.data.pdp_listing_detail;
             // photos
             const transPhotos = [];
             for (let i = 0; i < 5; i++) {
                const p = apiData.photos[i]?.large;
-               console.log("p" + "i" + p);
                if (p) {
                   transPhotos.push(p);
                }
@@ -66,10 +61,8 @@ const Detail = () => {
       try {
          let res;
          if (price) {
-            console.log("price" + price);
             res = parseFloat(avgRt).toFixed(2);
          } else {
-            console.log("!price" + price);
             const response = await axios.get(`/rating/${id}`);
             const {avgRating} = response.data;
             res = avgRating;
@@ -90,8 +83,7 @@ const Detail = () => {
    }
 
    return (
-      <div className="container mt-3">
-         <div>place page: {id} {price}</div>
+      <div className="container mt-5">
          <div>
             <h3>{place.title}</h3>
             <div className="d-flex align-items-center">

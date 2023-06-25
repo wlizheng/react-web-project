@@ -13,11 +13,9 @@ const Search = () => {
    useEffect(() => {
       const searchAirbnb = async () => {
          try {
-            console.log(location);
             const response = await axios.get(`/search?location=${location}`);
             const exploreTabs = response.data.explore_tabs;
             const sectionListings = [];
-
             const sections = exploreTabs[0]?.sections || [];
             sections.forEach((section) => {
                if (section.result_type === "listings") {
@@ -46,9 +44,10 @@ const Search = () => {
 
    return (
       <div className="container mt-5">
-         <h4>Explore your next stay in {location}</h4>
-         <div className="row mb-3">
-            <div>Length: {listings.length}</div>
+         <h4 className="mb-4">
+            Explore your next stay in {location}
+         </h4>
+         <div className="row mb-2">
             {listings.length > 0 && listings.map(listing => (
                <Link to={`/detail/${listing.listing.id}?value=${listing
                   .pricing_quote.structured_stay_display_price.primary_line.price}
@@ -62,14 +61,16 @@ const Search = () => {
                              className="object-cover aspect-square rounded-4"
                              alt=""/>
                      </div>
-                     id: {listing.listing.id}
-                     <div className="mt-1 fw-bold">
-                        {listing.listing.name}</div>
+                     <div className="fw-bold mt-2">
+                        {listing.listing.public_address}
+                     </div>
                      <div className="text-black-50">
-                        {listing.listing.public_address}</div>
+                        {listing.listing.name}
+                     </div>
                      <div className="mt-1">
                         <span className="font-bold">{listing.pricing_quote
-                           .structured_stay_display_price.primary_line.price}
+                           .structured_stay_display_price.primary_line.price
+                        .toLocaleString()}
                         </span> night
                      </div>
                   </div>

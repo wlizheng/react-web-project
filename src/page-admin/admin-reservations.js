@@ -4,7 +4,6 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import {VscArrowSmallRight, VscCalendar} from "react-icons/vsc";
 import {format} from "date-fns";
-import WriteReview from "../page-detail/write-review";
 import {TiDeleteOutline} from "react-icons/ti";
 
 const AdminReservations = () => {
@@ -55,7 +54,6 @@ const AdminReservations = () => {
                            )}
                            <div className="d-none d-lg-block p-2 col">
                               <h5>{reservation.place.title}</h5>
-                              {reservation._id}
                               <div
                                  className="flex align-items-center mb-2 truncate">
                                  <VscCalendar/>{format(
@@ -65,10 +63,10 @@ const AdminReservations = () => {
                                  new Date(reservation.checkOut), "yyyy-MM-dd")}
                               </div>
                               <div>
-                                 Guest: <span
-                                 className="text-capitalize">{reservation.guest.username}</span>
+                                 Guest: <span className="text-capitalize">
+                                 {reservation.guest.username}</span>
                                  <br/>
-                                 Total price: ${reservation.price}
+                                 Total price: ${reservation.price.toLocaleString()}
                               </div>
                            </div>
                         </div>

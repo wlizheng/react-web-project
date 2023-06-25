@@ -20,7 +20,6 @@ const ListingReviewsPlaces = ({rating}) => {
             if (price) {
                response = await axios.get(`/search/reviews/${id}`);
                const apiData = response.data.reviews;
-               console.log({apiData});
                setReviews(apiData);
             } else {
                response = await axios.get(`/reviews/place/${id}`);
@@ -45,7 +44,7 @@ const ListingReviewsPlaces = ({rating}) => {
             <div className="d-flex flex-wrap mt-4">
                {reviews?.length > 0 &&
                   reviews.map((review) => (
-                     <div className="col-12 col-md-6 border p-3 rounded-4 mb-5"
+                     <div className="col-12 col-md-6 rounded-4 mb-5"
                           key={review.id}>
                         <div className="d-flex align-items-center
                            text-decoration-none text-black me-2">
@@ -67,7 +66,7 @@ const ListingReviewsPlaces = ({rating}) => {
             <div className="d-flex flex-wrap mt-4">
                {reviews?.length > 0 &&
                   reviews.map((review) => (
-                     <div className="col-12 col-md-6 border p-3 rounded-4 mb-5"
+                     <div className="col-12 col-md-6 rounded-4 mb-5"
                           key={review.id}>
                         <Link to={`/profile/${review.guest._id}`}
                               className="d-flex align-items-center

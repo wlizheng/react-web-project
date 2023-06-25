@@ -36,7 +36,7 @@ const AdminPlaces = () => {
             <div className="col-2">
                <AdminNavSideBar/>
             </div>
-            <div className="col text-center justify-content-center">
+            <div className="col justify-content-center">
                <div className="row">
                   {places.length > 0 && places.map(place => (
                      <Link to={`/detail/${place._id}`}
@@ -51,11 +51,11 @@ const AdminPlaces = () => {
                               <button
                                  className="position-absolute top-0 end-0 p-2"
                                  onClick={(e) => handleDelete(e, place._id)}>
-                                 <TiDeleteOutline className="fs-2" style={{color: "white"}}/>
+                                 <TiDeleteOutline className="fs-2"
+                                                  style={{color: "white"}}/>
                               </button>
                            </div>
-                           {place._id}
-                           <div className="mt-1 fw-bold">{place.address}</div>
+                           <div className="mt-2 fw-bold">{place.address}</div>
                            <div className="text-black-50">{place.title}</div>
                            <div className="mt-1">
                               <span

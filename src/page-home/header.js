@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {FaAirbnb, FaUserCircle} from "react-icons/fa";
-import {FiMenu, FiSearch} from "react-icons/fi";
+import {FiSearch} from "react-icons/fi";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {profileThunk} from "../services/auth-thunks";
@@ -14,13 +14,11 @@ function Header() {
    const navigate = useNavigate();
 
    useEffect(() => {
-      if (currentUser) {
          const fetchProfile = async () => {
             const { payload } = await dispatch(profileThunk());
             setProfile(payload);
          };
          fetchProfile();
-      }
    }, []);
 
    const handleSearch = (e) => {
@@ -38,7 +36,6 @@ function Header() {
             {/*left-logo*/}
             <Link to={'/'} className="d-inline-flex d-none d-md-block col-md-4
              align-items-center text-[#ff5160] text-decoration-none fw-bold">
-               {/*<img src="/images/logo-icon.png" className="w-9" alt=""/>*/}
                <FaAirbnb className="fs-1"/>
             </Link>
 
