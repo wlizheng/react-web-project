@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wb-form {
+  @apply border p-2;
+  width: 100%;
+  margin-top: 0.75rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+
+.wb-active-link {
+  /*@apply bg-[#ff5160];*/
+  background-color: #ff5160;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* Limit the description to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 24px;
+}
