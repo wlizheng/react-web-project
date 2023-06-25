@@ -5,8 +5,10 @@ import {Link} from "react-router-dom";
 import {format} from "date-fns";
 import {FaStar} from "react-icons/fa";
 import {RiUserSmileLine} from "react-icons/ri";
+import {useSelector} from "react-redux";
 
 const ListingReviewsPlaces = ({rating}) => {
+   const {currentUser} = useSelector((state) => state.user);
    const {id} = useParams(); // place id
    const [reviews, setReviews] = useState([]);
    const location = useLocation();
@@ -68,15 +70,24 @@ const ListingReviewsPlaces = ({rating}) => {
                   reviews.map((review) => (
                      <div className="col-12 col-md-6 rounded-4 mb-5"
                           key={review.id}>
-                        <Link to={`/profile/${review.guest._id}`}
-                              className="d-flex align-items-center
+                        {(currentUser._id === review.guest._id)
+                           ? <Link to={`/profile`}
+                                   className="d-flex align-items-center
                               text-decoration-none text-black me-2">
-                           <RiUserSmileLine className="fs-4 me-1"/>
-                           <h5 className="text-capitalize">
-                              {review.guest.username}
-                           </h5>
-                        </Link>
-
+                              <RiUserSmileLine className="fs-4 me-1"/>
+                              <h5 className="text-capitalize">
+                                 {review.guest.username}
+                              </h5>
+                           </Link>
+                           : <Link to={`/profile/${review.guest._id}`}
+                                   className="d-flex align-items-center
+                              text-decoration-none text-black me-2">
+                              <RiUserSmileLine className="fs-4 me-1"/>
+                              <h5 className="text-capitalize">
+                                 {review.guest.username}
+                              </h5>
+                           </Link>
+                        }
                         <div>
                            <div className="text-black-50 text-sm">
                               {format(new Date(review.created), "MMMM yyyy")}
