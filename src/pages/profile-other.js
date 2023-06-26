@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router";
+import {useLocation, useParams} from "react-router";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
@@ -7,49 +7,64 @@ const ProfileOther = () => {
    const {id} = useParams();
    const [user, setUser] = useState(null);
    const [likes, setLikes] = useState([]);
+   const location = useLocation();
+   const params = new URLSearchParams(location.search);
+   const value = params.get('value');
 
    useEffect(() => {
-      const fetchUserData = async () => {
-         try {
-            const response = await axios.get(`/user?userId=${id}`);
-            setUser(response.data);
-         } catch (error) {
-            console.error("Error fetching user data:", error);
-         }
-      };
-      fetchUserData();
+      if (!value) {
+         const fetchUserData = async () => {
+            try {
+               const response = await axios.get(`/user?userId=${id}`);
+               setUser(response.data);
+            } catch (error) {
+               console.error("Error fetching user data:", error);
+            }
+         };
+         fetchUserData();
+      }
    }, [id]);
 
    useEffect(() => {
-      const fetchLikeData = async () => {
-         try {
-            const response = await axios.get(`/likes/user?userId=${id}`);
-            setLikes(response.data);
-         } catch (error) {
-            console.error("Error fetching user data:", error);
-         }
-      };
-      fetchLikeData();
+      if (!value) {
+         const fetchLikeData = async () => {
+            try {
+               const response = await axios.get(`/likes/user?userId=${id}`);
+               setLikes(response.data);
+            } catch (error) {
+               console.error("Error fetching user data:", error);
+            }
+         };
+         fetchLikeData();
+      }
    }, [id]);
 
    return (
       <div className="container mt-5">
          <div className="">
             <div className="col justify-content-center">
-               <h3 className="text-capitalize">
-                  {user && user.username}<span className="text-lowercase">'s </span>
-                  Profile & Likes
+               <h3>
+                  Profile
                </h3>
-               <div className="row">
+               <h5 className="d-flex">
+                  <div className="me-2">username:</div>
+                  {value
+                     ? <div> {value}</div>
+                     : <div> {user && user.username}</div>
+                  }
+               </h5>
+               <div className="row mt-4">
+                  <h3>Likes</h3>
                   {likes.length < 1 && (
-                     <h5 className="mt-4 text-capitalize">
-                        No likes for {user && user.username}
-                     </h5>
+                     <div>
+                        {value ? <h5>No likes for {value}</h5>
+                           : <h5>No likes for {user && user.username}</h5>}
+                     </div>
                   )}
                   {likes.length > 0 && likes.map(like => (
                      <Link to={`/detail/${like.place._id}`}
-                           className="text-black text-decoration-none mb-4
-                     col-lg-3 col-md-4 col-sm-6 col-12 mt-4"
+                           className="text-black text-decoration-none
+                     col-lg-3 col-md-4 col-sm-6 col-12"
                            key={like.place.id}>
                         <div className="text-sm truncate">
                            <div className="position-relative">

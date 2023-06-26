@@ -48,13 +48,15 @@ const ListingReviewsPlaces = ({rating}) => {
                   reviews.map((review) => (
                      <div className="col-12 col-md-6 rounded-4 mb-5"
                           key={review.id}>
-                        <div className="d-flex align-items-center
+                        <Link to={`/profile/${review.reviewer.id}
+                        ?value=${review.reviewer.first_name}`}
+                              className="d-flex align-items-center
                            text-decoration-none text-black me-2">
                            <RiUserSmileLine className="fs-4 me-1"/>
                            <h5 className="text-capitalize align-items-center">
                               {review.reviewer.first_name}
                            </h5>
-                        </div>
+                        </Link>
                         <div className="text-black-50 text-sm">
                            {review.localized_date}</div>
                         <div className="mt-1 description">
