@@ -70,7 +70,7 @@ const ListingReviewsPlaces = ({rating}) => {
                   reviews.map((review) => (
                      <div className="col-12 col-md-6 rounded-4 mb-5"
                           key={review.id}>
-                        {(currentUser._id === review.guest._id)
+                        {(currentUser && currentUser._id === review.guest._id)
                            ? <Link to={`/profile`}
                                    className="d-flex align-items-center
                               text-decoration-none text-black me-2">
