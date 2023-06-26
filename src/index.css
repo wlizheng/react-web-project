@@ -33,7 +33,16 @@ a {
 
 .description {
   display: -webkit-box;
-  -webkit-line-clamp: 7; /* Limit the description to 5 lines */
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 24px;
+}
+
+.review {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

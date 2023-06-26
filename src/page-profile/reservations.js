@@ -48,7 +48,7 @@ const Reservations = () => {
                <ProfileNavSideBar/>
             </div>
             <div className="col-10 justify-content-center">
-               <h3 className="text-center mb-4">My trips</h3>
+               <h3 className="text-center mb-4">My Reservations</h3>
                {reservations?.length > 0 && reservations.map((reservation) => (
                   <div>
                      <div className=" mb-4 border p-3 rounded-4 shadow">
@@ -63,7 +63,7 @@ const Reservations = () => {
                                       alt=""/>
                               </Link>
                            )}
-                           <div className="d-none d-lg-block p-2 col">
+                           <div className="d-none d-md-block p-2 col">
                               <h5>{reservation.place.title}</h5>
                               <div
                                  className="flex align-items-center mb-2 truncate">

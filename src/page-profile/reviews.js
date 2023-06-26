@@ -27,7 +27,7 @@ const Reviews = () => {
             <div className="col-2">
                <ProfileNavSideBar/>
             </div>
-            <div className="col">
+            <div className="col-10">
                <h3 className="text-center">My reviews</h3>
                <div className="mt-4">
                   {reviews?.length > 0 && reviews.map((review) => (
@@ -42,9 +42,9 @@ const Reviews = () => {
                               </Link>
                            )}
                            <div className="p-3 me-5 mb-4">
-                              <h5>{review.place.title}</h5>
+                              <h5 className="review">{review.place.title}</h5>
                               <div>rating: {review.rating}</div>
-                              <div>{review.comment}</div>
+                              <div className="review">{review.comment}</div>
                            </div>
                         </div>
                      </div>

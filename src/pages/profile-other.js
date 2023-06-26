@@ -63,7 +63,7 @@ const ProfileOther = () => {
                   )}
                   {likes.length > 0 && likes.map(like => (
                      <Link to={`/detail/${like.place._id}`}
-                           className="text-black text-decoration-none
+                           className="text-black text-decoration-none mb-4
                      col-lg-3 col-md-4 col-sm-6 col-12"
                            key={like.place.id}>
                         <div className="text-sm truncate">
@@ -73,7 +73,7 @@ const ProfileOther = () => {
                                    alt=""/>
                            </div>
                            <div
-                              className="mt-1 fw-bold">{like.place.address}</div>
+                              className="mt-2 fw-bold">{like.place.address}</div>
                            <div
                               className="text-black-50">{like.place.title}</div>
                            <div className="mt-1">
